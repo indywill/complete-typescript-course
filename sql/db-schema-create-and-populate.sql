@@ -4,9 +4,16 @@
 
 -- DROP TABLE "Courses";
 
+CREATE SEQUENCE public."Courses_id_seq"
+    INCREMENT 1
+    START 15
+    MINVALUE 1
+    MAXVALUE 9223372036854775807
+    CACHE 1;
+
 CREATE TABLE "Courses"
 (
-  id serial NOT NULL,
+  id integer NOT NULL DEFAULT nextval('"Courses_id_seq"'::regclass),
   url character varying(255),
   description character varying(255) NOT NULL,
   "longDescription" text NOT NULL,
@@ -25,9 +32,16 @@ CREATE TABLE "Courses"
 
 -- Table: "Lessons"
 
+CREATE SEQUENCE public."Lessons_id_seq"
+    INCREMENT 1
+    START 187
+    MINVALUE 1
+    MAXVALUE 9223372036854775807
+    CACHE 1;
+
 CREATE TABLE "Lessons"
 (
-  id serial NOT NULL,
+  id integer NOT NULL DEFAULT nextval('"Lessons_id_seq"'::regclass),
   url character varying(255),
   description character varying(255) NOT NULL,
   duration character varying(255) NOT NULL,
